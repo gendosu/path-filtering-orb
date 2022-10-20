@@ -46,7 +46,6 @@ parameters:
       https://hub.docker.com/r/cimg/python/tags
 
 steps:
-  - checkout
   - when:
       condition:
         not:
@@ -54,6 +53,7 @@ steps:
       steps:
         - attach_workspace:
             at: << parameters.workspace_path >>
+  - checkout
   - set-parameters:
       base-revision: << parameters.base-revision >>
       mapping: << parameters.mapping >>
